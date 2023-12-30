@@ -1,0 +1,140 @@
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PicoW</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Arial", "sans-serif";
+		}
+		button{
+			width: 100px;
+			height: 35px;
+			margin: 10px;
+			border-radius: 10px;
+			color: white;
+		}
+		.bigContainer{
+			border: 3px black solid;
+			border-radius: 10px;
+			padding: 20px;
+			margin: 40px;
+		}
+		#container{
+			padding: 10px;
+			display: flex;
+			justify-content: space-around;
+		}
+		.smallContainer{
+			width: 30%%;
+			text-align: center;
+			border-radius: 10px;
+			border: 1px solid black;
+		}
+		h1{
+			text-align: center;
+			padding: 10px;
+		}
+		.disarm{
+			background-color: red;
+		}
+		.arm{
+			background-color: green;
+		}
+		button:hover{
+			cursor: pointer;
+			transform: scale(1.5);
+		}
+	</style>
+</head>
+<body>
+	<div class="bigContainer">
+		<h1>Home Alarm System</h1>
+		<div id="container">
+			<div class="smallContainer">
+				<h1>Arm/Disarm</h1>
+				<h3>Alarm is currently %s</h3>
+				<form action="/arm/on" method="get">
+					<button name="arm" type="submit" class="arm" value="on">Arm</button>
+				</form>
+				<form action="/arm/off" method="get">
+					<button name="arm" type="submit" class="disarm" value="off">Disarm</button>
+				</form>
+			</div>
+			<div class="smallContainer">
+				<h1>Panic Switch</h1>
+				<form action="/panic" method="get">
+					<button name="panic" type="submit" class="disarm" value="on">Panic Switch</button>
+				</form>
+			</div>
+			<div class="smallContainer">
+				<h1>Kill Switch</h1>
+				<form action="/kill" method="get">
+					<button name="kill" type="submit" class="arm" value="off">Kill Switch</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="bigContainer">
+		<h1>Lights Control</h1>
+		<div id="container">
+			<div class="smallContainer">
+				<h2>Living Room</h2>
+				<form action="/led1/on" method="get">
+					<button name="on" type="submit" class="arm" value="on">Turn On</button>
+				</form>
+				<form action="/led1/off" method="get">
+					<button name="off" type="submit" class="disarm" value="off">Turn Off</button>
+				</form>
+			</div>
+			<div class="smallContainer">
+				<h2>Bedroom</h2>
+				<form action="/led2/on" method="get">
+					<button name="on" type="submit" class="arm" value="on">Turn On</button>
+				</form>
+				<form action="/led2/off" method="get">
+					<button name="off" type="submit" class="disarm" value="off">Turn Off</button>
+				</form>
+			</div>
+			<div class="smallContainer">
+				<h2>Kitchen</h2>
+				<form action="/led3/on" method="get">
+					<button name="on" type="submit" class="arm" value="on">Turn On</button>
+				</form>
+				<form action="/led3/off" method="get">
+					<button name="off" type="submit" class="disarm" value="off">Turn Off</button>
+				</form>
+			</div>
+			<div class="smallContainer">
+				<h2>Toilet</h2>
+				<form action="/led4/on" method="get">
+					<button name="on" type="submit" class="arm" value="on">Turn On</button>
+				</form>
+				<form action="/led4/off" method="get">
+					<button name="off" type="submit" class="disarm" value="off">Turn Off</button>
+				</form>
+			</div>
+			<div class="smallContainer">
+				<h2>All Lights</h2>
+				<form action="/all/on" method="get">
+					<button name="on" type="submit" class="arm" value="on">Turn On</button>
+				</form>
+				<form action="/all/off" method="get">
+					<button name="off" type="submit" class="disarm" value="off">Turn Off</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+		setInterval(() => location.reload(), 1100)
+    </script>
+</body>
+</html>

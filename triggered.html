@@ -1,0 +1,70 @@
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PicoW</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+            background-color: red;
+			font-family: "Arial", "sans-serif";
+		}
+		button{
+			width: 100px;
+			height: 35px;
+			margin: 10px;
+			border-radius: 10px;
+			color: white;
+		}
+		#container{
+			display: flex;
+			justify-content: space-around;
+		}
+		.smallContainer{
+			width: 30%%;
+			height: 500px;
+			margin: 30px;
+			text-align: center;
+			border-radius: 10px;
+			border: 2px solid black;
+		}
+		h1{
+			text-align: center;
+			padding: 10px;
+		}
+		.disarm{
+			background-color: red;
+		}
+		.arm{
+			background-color: green;
+		}
+		button:hover{
+			cursor: pointer;
+			transform: scale(1.5);
+		}
+		button{
+            margin-top: 100px
+		}
+	</style>
+</head>
+<body>
+	<h1>Home Alarm System</h1>
+	<div class="smallContainer">
+		<div style="padding: 20px; margin: 30px;">
+			<h1>Alarm Triggered</h1>
+			<form action="/arm/off" method="get">
+				<button name="arm" type="submit" class="disarm" value="off">Disarm</button>
+			</form>
+		</div>
+	</div>
+	<script>
+		setInterval(() => location.reload(), 1100)
+    </script>
+</body>
+</html>
